@@ -418,6 +418,15 @@ module.exports = {
       '40': '40',
       '50': '50',
     },
+    customForms: theme => ({
+      default: {
+        input: {
+          borderColor: 'transparent',
+          borderRadius: theme('borderRadius.lg'),
+          backgroundColor: theme('colors.gray.700'),
+        }
+      }
+    })
   },
   variants: {
     accessibility: ['responsive', 'focus'],
@@ -488,6 +497,8 @@ module.exports = {
     zIndex: ['responsive'],
   },
   corePlugins: {},
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/custom-forms')
+  ],
 }
 /* eslint-enable no-alert, no-console */
