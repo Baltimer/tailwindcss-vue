@@ -7,12 +7,15 @@
         </div>
         <input class="block w-full border border-transparent bg-gray-900 focus:outline-none focus:bg-white focus:text-gray-900 text-white rounded-lg pl-10 pr-4 py-2" type="text" placeholder="Búsqueda">
       </div>
-      <button class="flex items-center bg-gray-700 hover:bg-gray-600 focus:outline-none focus:shadow-outline rounded-lg shadow pr-4 pl-3 ml-4">
+      <button type="button" class="flex items-center focus:outline-none  rounded-lg pr-4 pl-3 ml-4"
+        @click="toggle"
+        :class="{ 'bg-gray-600 hover:bg-gray-700': isOpen, 'bg-gray-700 hover:bg-gray-600': !isOpen }"
+      >
         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 fill-current text-gray-500" viewBox="0 0 24 24"><path d="M2.3 7.7A1 1 0 0 1 2 7V3a1 1 0 0 1 1-1h18a1 1 0 0 1 1 1v4a1 1 0 0 1-.3.7L15 14.42V17a1 1 0 0 1-.3.7l-4 4A1 1 0 0 1 9 21v-6.59l-6.7-6.7zM4 4v2.59l6.7 6.7a1 1 0 0 1 .3.71v4.59l2-2V14a1 1 0 0 1 .3-.7L20 6.58V4H4z"/></svg>
         <span class="ml-1 text-white text-medium">Filtros</span>
       </button>
     </div>
-    <form>
+    <form v-show="isOpen">
       <div>
         <fieldset class="px-4 py-2 border-t border-gray-900">
           <div class="flex -mx-2">
@@ -41,56 +44,56 @@
       </div>
       <fieldset class="px-4 py-2 border-t border-gray-900">
         <span class="block text-sm font-semibold text-gray-500">Tipo de propiedad</span>
-        <label class="flex items-center">
-          <input class="form-radio" type="radio" name="house" value="house">
+        <label class="flex items-center mt-3">
+          <input class="form-radio bg-gray-900 border-transparent" type="radio" name="type" value="house">
           <span class="ml-2 text-white">Casa</span>
         </label>
-        <label class="flex items-center">
-          <input class="form-radio" type="radio" name="apartment" value="apartment">
+        <label class="flex items-center mt-3">
+          <input class="form-radio bg-gray-900 border-transparent" type="radio" name="type" value="apartment">
           <span class="ml-2 text-white">Apartamento</span>
         </label>
-        <label class="flex items-center">
-          <input class="form-radio" type="radio" name="Loft" value="Loft">
+        <label class="flex items-center mt-3">
+          <input class="form-radio bg-gray-900 border-transparent" type="radio" name="type" value="Loft">
           <span class="ml-2 text-white">Loft</span>
         </label>
-        <label class="flex items-center">
-          <input class="form-radio" type="radio" name="townhouse" value="townhouse">
+        <label class="flex items-center mt-3">
+          <input class="form-radio bg-gray-900 border-transparent" type="radio" name="type" value="townhouse">
           <span class="ml-2 text-white">Casa de pueblo</span>
         </label>
       </fieldset>
-      <fieldset>
-        <legend>Características</legend>
-        <label>
-          <input class="form-checkbox" type="checkbox" name="balcon">
-          Balcón
+      <fieldset class="px-4 py-2 border-t border-gray-900">
+        <span class="block text-sm font-semibold text-gray-500">Características</span>
+        <label class="flex items-center mt-3">
+          <input class="form-checkbox bg-gray-900 border-transparent" type="checkbox" name="balcon">
+          <span class="ml-2 text-white">Balcón</span>
         </label>
-        <label>
-          <input class="form-checkbox" type="checkbox" name="air_conditioned">
-          Aire acondicionado
+        <label class="flex items-center mt-3">
+          <input class="form-checkbox bg-gray-900 border-transparent" type="checkbox" name="air_conditioned">
+          <span class="ml-2 text-white">Aire acondicionado</span>
         </label>
-        <label>
-          <input class="form-checkbox" type="checkbox" name="piscina">
-          Piscina
+        <label class="flex items-center mt-3">
+          <input class="form-checkbox bg-gray-900 border-transparent" type="checkbox" name="piscina">
+          <span class="ml-2 text-white">Piscina</span>
         </label>
-        <label>
-          <input class="form-checkbox" type="checkbox" name="playa">
-          Playa
+        <label class="flex items-center mt-3">
+          <input class="form-checkbox bg-gray-900 border-transparent" type="checkbox" name="playa">
+          <span class="ml-2 text-white">Playa</span>
         </label>
-        <label>
-          <input class="form-checkbox" type="checkbox" name="pet_friendly">
-          Pet friendly
+        <label class="flex items-center mt-3">
+          <input class="form-checkbox bg-gray-900 border-transparent" type="checkbox" name="pet_friendly">
+          <span class="ml-2 text-white">Pet friendly</span>
         </label>
-        <label>
-          <input class="form-checkbox" type="checkbox" name="kid_friendly">
-          Kid friendly
+        <label class="flex items-center mt-3">
+          <input class="form-checkbox bg-gray-900 border-transparent" type="checkbox" name="kid_friendly">
+          <span class="ml-2 text-white">Kid friendly</span>
         </label>
-        <label>
-          <input class="form-checkbox" type="checkbox" name="parking">
-          Parking
+        <label class="flex items-center mt-3">
+          <input class="form-checkbox bg-gray-900 border-transparent" type="checkbox" name="parking">
+          <span class="ml-2 text-white">Parking</span>
         </label>
       </fieldset>
-      <div>
-        <button>Actualizar resultados</button>
+      <div class="bg-gray-900 px-4 py-2">
+        <button class="block w-full bg-indigo-500 hover:bg-indigo-400 font-semibold text-white px-4 py-2 rounded-lg">Actualizar resultados</button>
       </div>
     </form>
   </section>
@@ -101,11 +104,13 @@ export default {
   props: [],
   data() {
     return {
-
+      isOpen: false
     }
   },
   methods: {
-
+    toggle() {
+      this.isOpen = !this.isOpen;
+    }
   }
 }
 </script>

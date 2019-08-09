@@ -420,10 +420,39 @@ module.exports = {
     },
     customForms: theme => ({
       default: {
-        input: {
+        radio: {
           borderColor: 'transparent',
           borderRadius: theme('borderRadius.lg'),
           backgroundColor: theme('colors.gray.700'),
+          checkedColor: theme('colors.indigo.500'),
+          radioSize: '1.5em',
+          '&:focus': {
+            borderColor: 'transparent',
+            boxShadow: 'none'
+          }
+        },
+        select: {
+          textColor: theme('colors.gray.500'),
+          lineHeight: theme('lineHeight.relaxed'),
+          borderColor: 'transparent',
+          focusShadow: 'none',
+          borderRadius: theme('borderRadius.lg'),
+          backgroundColor: theme('colors.gray.700'),
+          selectIcon: `<svg viewBox="0 0 16 16" fill="#FFF" xmlns="http://www.w3.org/2000/svg"><circle cx="8" cy="8" r="3"/></svg>`,
+          '&:focus': {
+            borderColor: 'transparent',
+          }
+        },
+        checkbox: {
+          borderColor: 'transparent',
+          backgroundColor: theme('colors.gray.700'),
+          checkedColor: theme('colors.indigo.500'),
+          checkBoxSize: '1.5rem',
+          radioSize: '1.5em',
+          '&:focus': {
+            borderColor: 'transparent',
+            boxShadow: 'none'
+          }
         }
       }
     })
