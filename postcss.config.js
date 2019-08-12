@@ -14,9 +14,10 @@ module.exports = {
     process.env.NODE_ENV === "production"? purgecss({
       content: [
           "./src/**/*.html", 
-          "./src/**/*.vue"
+          "./src/**/*.vue",
+          "./public/index.html"
       ],
-      
+
       // Include any special characters you're using in this regular expression
       defaultExtractor: content => content.match(/[\w-/:]+(?<!:)/g) || []
     }): ""
