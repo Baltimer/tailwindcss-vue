@@ -1,5 +1,5 @@
 <template>
-  <div class="py-6">
+  <main class="py-6 xl:flex-1 xl:overflow-x-hidden">
     <div class="px-4">
       <h3 class="text-gray-900 text-xl">Casas</h3>
       <p class="text-gray-600">Encuentra las casas que necesites!</p>
@@ -35,7 +35,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </main>
 </template>
 
 <script>

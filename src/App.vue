@@ -1,11 +1,9 @@
 <template>
-  <div id="app" class="h-full bg-gray-200">
-    <SiteHeader />
-    <div>
+  <div id="app" class="min-h-screen bg-gray-200 antialiased xl:flex xl:flex-col xl:h-screen">
+    <SiteHeader class="xl:flex-shrink-0" />
+    <div class="xl:flex-1 xl:flex xl:overflow-y-hidden">
       <SearchFilters />
-      <main class="bg-gray-200">
-        <router-view/>
-      </main>
+      <router-view/>
     </div>
   </div>
 </template>

@@ -1,6 +1,6 @@
 <template>
-  <section class="bg-gray-800">
-    <div class="pl-4 pr-2 py-3 flex justify-between">
+  <section class="bg-gray-800 xl:w-72">
+    <div class="pl-4 pr-2 py-3 flex justify-between xl:hidden">
       <div class="relative max-w-xs w-full">
         <div class="absolute inset-y-0 left-0 pl-3 flex items-center">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 fill-current text-gray-500" viewBox="0 0 24 24"><path d="M16.32 14.9l5.39 5.4a1 1 0 0 1-1.42 1.4l-5.38-5.38a8 8 0 1 1 1.41-1.41zM10 16a6 6 0 1 0 0-12 6 6 0 0 0 0 12z"/></svg>
@@ -15,9 +15,9 @@
         <span class="ml-1 text-white text-medium">Filtros</span>
       </button>
     </div>
-    <form v-show="isOpen">
-      <div class="lg:flex">
-        <div class="px-4 py-4 border-t border-gray-900 lg:w-1/3">
+    <form v-show="isOpen" class=" xl:h-full xl:flex xl:flex-col xl:justify-between xl:h-full">
+      <div class="lg:flex xl:block xl:overflow-y-auto">
+        <div class="px-4 py-4 border-t border-gray-900 lg:w-1/3 xl:border-t-0 xl:w-full">
           <div class="flex flex-wrap -mx-2">
             <label class="block w-1/2 sm:w-1/4 lg:w-1/2 px-2">
               <span class="text-sm font-semibold text-gray-500">Habitaciones</span>
@@ -39,7 +39,7 @@
             </label>
           </div>
         </div>
-        <div class="px-4 py-2 border-t border-gray-900 lg:w-1/3 lg:border-l">
+        <div class="px-4 py-2 border-t border-gray-900 lg:w-1/3 lg:border-l xl:w-full">
           <span class="block text-sm font-semibold text-gray-500">Tipo de propiedad</span>
           <div class="sm:flex sm:-mx-2 lg:block lg:mx-0">
             <label class="flex sm:w-1/4 sm:px-2 items-center mt-3 lg:w-full lg:px-0">
@@ -60,30 +60,30 @@
             </label>
           </div>
         </div>
-        <div class="px-4 py-2 border-t border-gray-900 lg:w-1/3 lg:border-l">
+        <div class="px-4 py-2 border-t border-gray-900 lg:w-1/3 lg:border-l xl:w-full">
           <span class="block text-sm font-semibold text-gray-500">Características</span>
           <div class="sm:flex sm:-mx-2 sm:flex-wrap">
-            <label class="flex sm:w-1/4 sm:px-2 items-center mt-3 lg:w-1/2">
+            <label class="flex sm:w-1/4 sm:px-2 items-center mt-3 lg:w-1/2 xl:w-full">
               <input class="form-checkbox bg-gray-900 border-transparent" type="checkbox" name="balcon">
               <span class="ml-2 text-white">Balcón</span>
             </label>
-            <label class="flex sm:w-1/4 sm:px-2 items-center mt-3 lg:w-1/2">
+            <label class="flex sm:w-1/4 sm:px-2 items-center mt-3 lg:w-1/2 xl:w-full">
               <input class="form-checkbox bg-gray-900 border-transparent" type="checkbox" name="piscina">
               <span class="ml-2 text-white">Piscina</span>
             </label>
-            <label class="flex sm:w-1/4 sm:px-2 items-center mt-3 lg:w-1/2">
+            <label class="flex sm:w-1/4 sm:px-2 items-center mt-3 lg:w-1/2 xl:w-full">
               <input class="form-checkbox bg-gray-900 border-transparent" type="checkbox" name="playa">
               <span class="ml-2 text-white">Playa</span>
             </label>
-            <label class="flex sm:w-1/4 sm:px-2 items-center mt-3 lg:w-1/2">
+            <label class="flex sm:w-1/4 sm:px-2 items-center mt-3 lg:w-1/2 xl:w-full">
               <input class="form-checkbox bg-gray-900 border-transparent" type="checkbox" name="pet_friendly">
               <span class="ml-2 text-white">Pet friendly</span>
             </label>
-            <label class="flex sm:w-1/4 sm:px-2 items-center mt-3 lg:w-1/2">
+            <label class="flex sm:w-1/4 sm:px-2 items-center mt-3 lg:w-1/2 xl:w-full">
               <input class="form-checkbox bg-gray-900 border-transparent" type="checkbox" name="kid_friendly">
               <span class="ml-2 text-white">Kid friendly</span>
             </label>
-            <label class="flex sm:w-1/4 sm:px-2 items-center mt-3 lg:w-1/2">
+            <label class="flex sm:w-1/4 sm:px-2 items-center mt-3 lg:w-1/2 xl:w-full">
               <input class="form-checkbox bg-gray-900 border-transparent" type="checkbox" name="parking">
               <span class="ml-2 text-white">Parking</span>
             </label>
@@ -95,7 +95,7 @@
         </div>
       </div>
       <div class="bg-gray-900 px-4 py-2">
-        <button class="block w-full sm:w-auto sm:inline-block bg-indigo-500 hover:bg-indigo-400 font-semibold text-white px-4 py-2 rounded-lg">Actualizar resultados</button>
+        <button class="block w-full xl:w-full sm:w-auto sm:inline-block bg-indigo-500 hover:bg-indigo-400 font-semibold text-white px-4 py-2 rounded-lg">Actualizar resultados</button>
       </div>
     </form>
   </section>
