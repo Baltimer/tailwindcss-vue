@@ -3,9 +3,9 @@
     <h3 class="text-gray-900 text-xl">Casas</h3>
     <p class="text-gray-600">Encuentra las casas que necesites!</p>
     <div class="mt-6">
-      <div>
-        <div>
-          <img class="rounded-lg shadow-md h-64" src="@/assets/img/home1.jpg" alt="home1">
+      <div v-for="i in 4" :key="i">
+        <div class="relative pb-5/6">
+          <img class="absolute inset-0 h-full rounded-lg shadow-md object-cover" src="@/assets/img/home1.jpg" alt="home1">
         </div>
         <div class="relative px-4 -mt-16">
           <div class="bg-white rounded-lg px-4 py-4 shadow-lg">

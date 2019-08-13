@@ -371,7 +371,10 @@ module.exports = {
       '11': '11',
       '12': '12',
     },
-    padding: theme => theme('spacing'),
+    padding: theme => ({
+      ...theme('spacing'),
+      '5/6': '83.333333%'
+    }),
     placeholderColor: theme => theme('colors'),
     stroke: {
       current: 'currentColor',
@@ -432,7 +435,7 @@ module.exports = {
           }
         },
         select: {
-          textColor: theme('colors.gray.500'),
+          color: theme('colors.white'),
           lineHeight: theme('lineHeight.relaxed'),
           borderColor: 'transparent',
           focusShadow: 'none',
