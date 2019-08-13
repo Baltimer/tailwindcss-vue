@@ -1,10 +1,12 @@
 <template>
   <div id="app" class="h-full bg-gray-200">
     <SiteHeader />
-    <SearchFilters />
-    <main class="bg-gray-200">
-      <router-view/>
-    </main>
+    <div>
+      <SearchFilters />
+      <main class="bg-gray-200">
+        <router-view/>
+      </main>
+    </div>
   </div>
 </template>
 

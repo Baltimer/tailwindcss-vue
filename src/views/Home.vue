@@ -5,8 +5,8 @@
       <p class="text-gray-600">Encuentra las casas que necesites!</p>
     </div>
     <div class="mt-6 sm:overflow-x-auto">
-      <div class="px-4 sm:flex sm:-ml-2 sm:pb-8">
-        <div v-for="i in 4" :key="i" :class="{ 'mt-10': i > 1 }" class="sm:mt-0 sm:max-w-xs sm:w-full sm:flex-shrink-0 sm:px-2">
+      <div class="px-4 sm:inline-flex sm:-ml-2 sm:pb-8">
+        <div v-for="i in 4" :key="i" :class="{ 'mt-10': i > 1 }" class="sm:mt-0 sm:max-w-xs sm:w-80 sm:flex-shrink-0 sm:px-2">
           <div class="relative pb-5/6">
             <img class="absolute inset-0 h-full rounded-lg shadow-md object-cover" src="@/assets/img/home1.jpg" alt="home1">
           </div>
