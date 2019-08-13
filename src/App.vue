@@ -2,7 +2,7 @@
   <div id="app" class="h-full bg-gray-200">
     <SiteHeader />
     <SearchFilters />
-    <main>
+    <main class="bg-gray-200">
       <router-view/>
     </main>
   </div>
