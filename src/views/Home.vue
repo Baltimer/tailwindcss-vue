@@ -11,7 +11,7 @@
         </div>
       </div>
     </div>
-    <div class="px-4">
+    <div class="px-4 mt-6">
       <h3 class="text-gray-900 text-xl">Villas</h3>
       <p class="text-gray-600">Las mejores villas a tu disposición.</p>
     </div>
