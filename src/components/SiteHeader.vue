@@ -24,20 +24,35 @@
       </div>
       <div class="sm:flex sm:items-center">
         <div class="px-2 pt-2 pb-5 border-b border-gray-800 sm:flex sm:border-b-0 sm:py-0 sm:px-0">
-          <a href="#" class="block px-3 py-1 rounded leading-tight font-semibold text-white hover:bg-gray-800 sm:text-sm sm:px-2 xl:text-gray-900">Registra tu propiedad</a>
-          <a href="#" class="mt-1 block px-3 py-1 rounded leading-tight font-semibold text-white hover:bg-gray-800 sm:mt-0 sm:text-sm sm:px-2 xl:text-gray-900 sm:ml-2">Viajes</a>
-          <a href="#" class="mt-1 block px-3 py-1 rounded leading-tight font-semibold text-white hover:bg-gray-800 sm:mt-0 sm:text-sm sm:px-2 xl:text-gray-900 sm:ml-2">Mensajes</a>
+          <a href="#" class="block px-3 py-1 rounded leading-tight font-semibold text-white hover:bg-gray-800 sm:text-sm sm:px-2 sm:focus:shadow-outline sm:focus:outline-none xl:text-gray-900 xl:hover:bg-gray-300">Registra tu propiedad</a>
+          <a href="#" class="mt-1 block px-3 py-1 rounded leading-tight font-semibold text-white hover:bg-gray-800 sm:mt-0 sm:text-sm sm:px-2 sm:focus:shadow-outline sm:focus:outline-none xl:text-gray-900 xl:hover:bg-gray-300 sm:ml-2">Viajes</a>
+          <a href="#" class="mt-1 block px-3 py-1 rounded leading-tight font-semibold text-white hover:bg-gray-800 sm:mt-0 sm:text-sm sm:px-2 sm:focus:shadow-outline sm:focus:outline-none xl:text-gray-900 xl:hover:bg-gray-300 sm:ml-2">Mensajes</a>
         </div>
-        <div class="px-5 py-5 sm:py-0 sm:ml-4 sm:px-0">
-          <div class="flex items-center">
+        <div class="relative px-5 py-5 sm:py-0 sm:ml-4 sm:px-0">
+          <div class="flex items-center sm:hidden">
             <img class="h-10 w-10 sm:h-8 sm:w-8 object-cover rounded-full border-2 border-gray-600 xl:border-gray-300" src="@/assets/img/perfil.jpg" alt="">
             <span class="ml-4 text-gray-200 font-semibold sm:hidden">Silvia Hasenberger</span>
           </div>
           <div class="mt-5 sm:hidden">
-            <a href="#" class="block text-gray-400 hover:text-white">Configuración</a>
-            <a href="#" class="mt-3 block text-gray-400 hover:text-white">Soporte</a>
-            <a href="#" class="mt-3 block text-gray-400 hover:text-white">Desconectar</a>
-          </div>
+                <a href="#" class="block text-gray-400 hover:text-white">Configuración</a>
+                <a href="#" class="mt-3 block text-gray-400 hover:text-white">Soporte</a>
+                <a href="#" class="mt-3 block text-gray-400 hover:text-white">Desconectar</a>
+              </div>
+          <Dropdown class="hidden sm:block">
+            <template #trigger="{ hasFocus, isOpen }">
+              <span class="h-8 w-8 block rounded-full border-2 overflow-hidden"
+                :class="[ (hasFocus || isOpen) ? 'outline-none border-white xl:border-indigo-300' : 'border-gray-600 xl:border-gray-300' ]">
+                <img class="h-full w-full object-cover " src="@/assets/img/perfil.jpg" alt="">
+              </span>
+            </template>
+            <template #dropdown>
+              <div class="mt-3 bg-white xl:border rounded-lg w-48 mt-3 shadow-lg py-2">
+                <a href="#" class="block hover:text-white text-gray-800 px-4 py-2 hover:bg-indigo-500">Configuración</a>
+                <a href="#" class="block hover:text-white text-gray-800 px-4 mt-0 py-2 hover:bg-indigo-500">Soporte</a>
+                <a href="#" class="block hover:text-white text-gray-800 px-4 mt-0 py-2 hover:bg-indigo-500">Desconectar</a>
+              </div>
+            </template>
+          </Dropdown>
         </div>
       </div>
     </nav>
@@ -45,12 +60,28 @@
 </template>
 
 <script>
+import Dropdown from '@/components/Dropdown'
+
 export default {
+  components: { Dropdown },
   props: [],
   data() {
     return {
       isOpen: false
     }
+  },
+  mounted() {
+    const onEscape = (e) => {
+      if(!this.dropdownOpen || e.key !== 'Escape'){
+        return
+      }
+      this.dropdownOpen = false;
+    }
+    document.addEventListener('keydown', onEscape);
+
+    this.$on('hook:destroyed', () => {
+      document.removeEventListener('keydown', onEscape);
+    })
   },
   methods: {
     toggle() {
